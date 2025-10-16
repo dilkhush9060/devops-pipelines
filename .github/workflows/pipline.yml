@@ -100,7 +100,8 @@ jobs:
 
       - name: Deploy Docker Stack
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "bash -s" << 'EOF'
-            cd /app
-            docker stack deploy -c compose.yml app
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          cd /app
+          git pull origin master
+          docker stack deploy -c compose.yml app
           EOF
