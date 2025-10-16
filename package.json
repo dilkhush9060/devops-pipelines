@@ -5,11 +5,16 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "dev": "node --watch src/index.js",
     "start": "node src/index.js",
     "test": "node src/index.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.18.1"
+  "packageManager": "pnpm@10.18.1",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
 }
