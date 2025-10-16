@@ -1,0 +1,3 @@
+stack.dilkhush.tech {
+    reverse_proxy ci-cd-app:5000
+}
