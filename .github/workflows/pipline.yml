@@ -96,6 +96,6 @@ jobs:
       - name: Connect to VPS and deploy docker stack
         run: |
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT || '22' }} \
-          ${{ secrets.VPS_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
           mkdir ~/app && cd ~/app && curl -o compose.yml https://github.com/dilkhush9060/devops-pipelines/compose.yml && docker stack deploy -c compose.yml app
           EOF
