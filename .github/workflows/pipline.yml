@@ -38,16 +38,10 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Install GitLeaks
-        run: sudo apt update && sudo apt install -y gitleaks
+        run: sudo apt install gitleaks -y
 
       - name: Run GitLeaks
-        run: gitleaks detect --source . -r gitleaks-report.json -f json --exit-code 1
-
-      - name: Upload GitLeaks report
-        uses: actions/upload-artifact@v3
-        with:
-          name: gitleaks-report
-          path: gitleaks-report.json
+        run: gitleaks detect --source . -r gitleaks-report.json -f json
 
   publish:
     runs-on: ubuntu-latest
