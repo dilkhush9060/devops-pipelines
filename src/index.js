@@ -11,7 +11,7 @@ const server = createServer(app);
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Server is running!!" });
+  res.status(200).json({ message: "Server is running!!!" });
 });
 
 server.listen(PORT, () => {
