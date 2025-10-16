@@ -98,9 +98,6 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy Docker Stack
+      - name: Copy latest compose.yml to VPS
         run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "bash -s" << 'EOF'
-            cd /app
-            docker stack deploy -c compose.yml app
-          EOF
+          scp -o StrictHostKeyChecking=no compose.yml ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/app/compose.yml
